@@ -1,5 +1,5 @@
 ---
-title: "Problem6: BinarySearch"
+title: 'Problem6: BinarySearch'
 author: "Akira MATSUI"
 date: "March 27, 2017"
 output: pdf_document
@@ -14,7 +14,7 @@ If you have a number $A$ that you need to find out where it is in a list, binary
 
 - compare $A$ with the mean number ,$R_m$, of the list ($m := N/2$)
 - if $A>R_m$, compare $A$ with $R_{m_2}$ ($m_2:= 3N/4$)
-- if $A<R_m$, compare $A$ with $R_{m_2}$ ($m_2:= N/4$)
+-if $A<R_m$, compare $A$ with $R_{m_2}$ ($m_2:= N/4$)
 
 
 Here is the simple explanation.  
@@ -30,14 +30,17 @@ There is a list that has numbers. Suppose that you want to find where $T = 9$ is
 
 Compare $T$ with $6$. In this case, $T>6$ then go to next step.
 
+Divide the list into half,
 
-### Second Step
-
-Divide the list into half.
-
-`(1,2,3)`, `(7,8,9)`
+`(1,2,3)`, `(7,8,9)`.
 
 Because $T>6$, we are interested in the latter list `(7,8,9)`.
+
+### Second Step
+ 
+You have
+
+`(7,8,9)`.
 
 Compare $T$ with $8$. In this case, $T>8$ then we have found where $T=9$ is in the list.
 
@@ -53,13 +56,7 @@ Compare $T$ with $8$. In this case, $T>8$ then we have found where $T=9$ is in t
 # Sample Answer
 
 
-
-
-
 ```{r}
-BS <- sort(as.integer( runif(100, min = 1, max = 99) ))
-T <-  as.integer( runif(1, min = 1, max = 99) )
-
 binary <- function(BS){
   
   N <- length(BS) #Number of factor
@@ -78,13 +75,12 @@ binary <- function(BS){
   }
   print('Not found')
 }
+
+BS <- sort(as.integer( runif(100, min = 1, max = 99) ))
+T <-  as.integer( runif(1, min = 1, max = 99) )
+
+print(T) 
+BS[binary(BS)]
+print(BS)
 ```
-
-
-
-
-
-
-
-
 
